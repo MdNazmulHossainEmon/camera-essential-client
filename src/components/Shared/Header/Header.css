@@ -1,0 +1,11 @@
+nav a {
+    text-decoration: none;
+    color: #fff;
+    margin-left: 1rem;
+}
+nav a:hover {
+    color: #FFF !important;
+}
+.header-name h2{
+    font-weight: 700;
+}

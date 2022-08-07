@@ -1,0 +1,32 @@
+.footer-bottom{
+   background-color:  #191919;
+   color : #636665;
+}
+
+.footer-top{
+    background-color: #1F1F1F;
+    color: #fff;
+}
+.social-icon svg{
+    display: inline-block;
+    width: 17px;
+    
+   
+}
+.social-icons{
+    display: inline-block;
+}
+.social-icon{
+background-color: #fff;
+margin-left: 20px;
+width: 40px;
+display: inline-block;
+height: 40px;
+line-height: 40px;
+border-radius: 50%;
+cursor: pointer;
+transition: 0.4s;
+}
+.social-icon:hover{
+    background-color: yellow;
+}
