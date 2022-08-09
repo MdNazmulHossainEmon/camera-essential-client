@@ -13,8 +13,8 @@ const Reviews = () => {
         .then(data=> setReviews(data))
     },[])
     return (
-        <div className='text-center py-4'>
-            <h2 className='mb-5'>Some Valuable Opinion : {reviews.length} </h2>
+        <div className='text-center pt-5 reviews'>
+            <h2 className='mb-5'>Some Valuable Opinion </h2>
            <Container>
             <Row md={4} lg={4} >
             {

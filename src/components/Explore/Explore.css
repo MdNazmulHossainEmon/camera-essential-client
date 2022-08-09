@@ -2,3 +2,19 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
 } */
+/* .fashionable-camera h2{
+    font-weight: 600;
+    font-size: 500px;
+} */
+.explore h2{
+    font-weight: bold;
+}
+.explore .card{
+    border: 0;
+    border :2px ;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 0px 2px 0px;
+}
+.explore .buyNowButton{
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 0px 2px 0px;
+
+}

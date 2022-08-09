@@ -63,9 +63,21 @@ const Header = () => {
                                 }
                             > Login
                             </NavLink>
+                            {user?.email && <div>
+                                <NavLink
+                                to="/dashboard"
+                                style={({ isActive }) =>
+                                    isActive ? activeStyle : undefined
+                                }
+                            > Dashboard
+                            </NavLink></div>}
 
-
-                            {user?.email && <Button className='ms-3' onClick={logOut} variant='danger'>LogOut</Button>}
+                            <span className='text-white ms-3'> {user?.displayName}</span>
+                            {user?.email && <span className='ms-3 text-white' style={{cursor : "pointer"}} onClick={logOut} variant='danger'>LogOut</span>
+                                
+                            
+                            
+                            }
 
                             
                         </Nav>

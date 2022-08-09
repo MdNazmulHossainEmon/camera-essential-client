@@ -16,7 +16,7 @@ const Products = () => {
 
 
     return (
-        <div className='py-4'>
+        <div className='pt-5 products'>
             <h2 className='text-center'>Explore the World of fashionable Cameras</h2>
             <Container>
                     { products.length === 0 ? <div className='text-center mb-5'>  

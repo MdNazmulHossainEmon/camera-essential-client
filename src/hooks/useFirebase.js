@@ -1,17 +1,62 @@
 import { useEffect, useState } from "react"
 
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword,signInWithEmailAndPassword ,updateProfile  } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init";
 
 initializeAuthentication();
 
 const UseFirebase = () => {
     const [user, setUser] = useState({});
-    const [error, setError] = useState(" ");
+    const [authError, setauthError] = useState(" ");
     const [isLoading, setIsLoading] = useState(true);
 
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
+
+    
+    // Login user
+    const loginUser = (email,password,location, history)=>{
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const destination = location.state?.from || '/purchase';
+                history(destination);
+        //   setUser(user);
+        })
+        .catch((error) => {
+          setauthError(error.message)
+        });
+    }
+   
+    // Create new user register 
+
+    const registerUser = (email, password,name,location, history) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                
+              
+                
+                const newUser = {email, displayName : name};
+                setUser(newUser)
+                // send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                  }).then(() => {
+                    
+                  }).catch((error) => {
+                    
+                  });
+                  const destination = location.state?.from || '/';
+                  history(destination);
+                  setauthError(" ") ;
+            })
+            .catch((authError) => {
+                setauthError(authError.message)
+            })
+            .finally(()=>setIsLoading(false))
+
+    }
+
 
     // signIn Using Google
     const signInUsingGoogle = (location, history) => {
@@ -24,9 +69,10 @@ const UseFirebase = () => {
                 setUser(result.user);
                 // sessionStorage.setItem("email", result.user.email);
             })
-            .catch((error) => {
-                setError(error.message)
-            });
+            .catch((authError) => {
+                setauthError(authError.message)
+            })
+            .finally(()=>setIsLoading(false))
     }
 
     // Logout implement 
@@ -35,31 +81,37 @@ const UseFirebase = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
             setUser({})
-        }).catch((error) => {
-            setError(error.message);
+        }).catch((authError) => {
+            setauthError(authError.message);
         })
             .finally(() => setIsLoading(false));
     }
 
-    // Simple onAuth state change 
+    // Observer user state
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+      const unsubscribe =   onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User is signed in, see docs for a list of available properties
                 setUser(user);
             } else {
-
+                setUser({})
             }
+
             setIsLoading(false)
+
         });
+        return ()=> unsubscribe;
+
     }, [])
 
     return {
         signInUsingGoogle,
         user,
-        error,
+        authError,
         logOut,
-        isLoading
+        isLoading,
+        registerUser,
+        loginUser
 
     }
 

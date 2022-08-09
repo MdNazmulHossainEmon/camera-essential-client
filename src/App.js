@@ -12,6 +12,9 @@ import Login from './components/Login/Login';
 import AuthProvider from './Contexts/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Purchase from './components/Purchase/Purchase';
+import Register from './components/Login/Register/Register';
+import Dashboard from './components/Dashboard/Dashboard/Dashboard';
+import Pay from './components/Dashboard/Pay/Pay';
 
 const App = () => {
   return (
@@ -25,15 +28,30 @@ const App = () => {
               <Route path="/home" element={<Home />} />
               <Route path="/explore" element={<Explore />} />
               <Route path="/addProduct" element={<AddProduct />} />
-              <Route path="/Review" element={<Review />} />
+              <Route path="/review" element={<Review />} />
+              <Route path="/pay" element={<Pay />} />
+
+              <Route path="/dashboard" element={
+                <PrivateRoute>
+                  <Dashboard></Dashboard>
+                </PrivateRoute>
+              } />
 
               <Route path="/purchase" element={
                 <PrivateRoute>
                   <Purchase></Purchase>
                 </PrivateRoute>
               } />
+    
+              <Route path="/purchase/:id" element={
+                <PrivateRoute>
+                  <Purchase></Purchase>
+                </PrivateRoute>
+              } />
+             
 
               <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
 
 
 

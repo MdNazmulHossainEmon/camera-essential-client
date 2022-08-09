@@ -1,0 +1,9 @@
+.product .card{
+    /* background-color: red; */
+     border: 0;
+    border :2px ;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 0px 2px 0px; 
+}
+.product Button{
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 0px 2px 0px; 
+}

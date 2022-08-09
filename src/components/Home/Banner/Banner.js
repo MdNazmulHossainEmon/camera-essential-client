@@ -30,8 +30,7 @@ Beautiful Moments</h2>
         />
 
         <Carousel.Caption className='carousel-caption'>
-        <h2>Capture Your <br />
-Beautiful Moments</h2>
+        <h2>Look for the <br /> magic in every moment.</h2>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -42,9 +41,7 @@ Beautiful Moments</h2>
         />
 
         <Carousel.Caption className='carousel-caption'>
-        <h2>Capture Your <br />
-Beautiful Moments</h2>  
-      
+       <h2> perfect focus <br /> on my own picture    </h2>     
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

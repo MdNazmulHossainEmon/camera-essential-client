@@ -1,7 +1,11 @@
 .our-offer input{
     
     border-radius: 50px;
-    width: 400px;
+    width: 320px;
     height: 60px;
-    padding-left: 10px;
+    padding-left: 20px;
+   
+    border: 0;
+    border :2px solid #666;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 0px 2px 0px;
 }

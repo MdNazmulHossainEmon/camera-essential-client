@@ -12,9 +12,8 @@ const Explore = () => {
             .then(data => setExploreProducts(data))
     }, [])
     return (
-        <div className='py-5'>
-            <h2 className='text-center
-            '>Explore the World of fashionable Cameras </h2>
+        <div className='py-5 explore'>
+            <h2 className='text-center'>Explore the World of fashionable Cameras </h2>
 
             <div className='explore-align text-center'>
                 <Container>
@@ -27,7 +26,7 @@ const Explore = () => {
                                 exploreProducts.map(exploreProduct => <Col
                                     key={exploreProduct._id}
                                 >
-                                    <Card className='h-100 '>
+                                    <Card className='h-100 card'>
                                         <div className='text-center'>
                                             <Card.Img className='w-50' variant="top" src={exploreProduct?.img} />
                                         </div>                                    <Card.Body>
@@ -38,7 +37,7 @@ const Explore = () => {
                                             <Card.Text>
                                                 Price : ${exploreProduct.price}
                                             </Card.Text>
-                                            <Button>Buy Now</Button>
+                                            <Button variant='light' className='buyNowButton'>Buy Now</Button>
                                         </Card.Body>
                                     </Card>
                                 </Col>)
