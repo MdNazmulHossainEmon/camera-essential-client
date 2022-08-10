@@ -2,87 +2,103 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-// import Divider from '@mui/material/Divider';
+import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-// import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-// import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { Link, } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { Button } from '@mui/material';
-// import Revsiew from '../Review/Review';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 
 
 const drawerWidth = 240;
 
-interface Props {
 
-    window?: () => Window;
-}
 
-export default function ResponsiveDrawer(props: Props) {
+export default function ResponsiveDrawer(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    // let { path, url } = u/seMatch ();
+    // let { path, url } = useMatch ();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
     };
 
     const drawer = (
-        
-        <div>
-      
-   
-            {/* <Toolbar /> */}
-            {/* <Divider /> */}
 
-          
+        <div>
+
+
+            <Toolbar />
+            <Divider />
+
+
+
 
             <List >
-            
-            <Link to="/review">
 
-            <Button>Review</Button>
-            </Link>
-          
-          
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem key={text} disablePadding>
+                <Link to="/dashboard">
+                     <Button>dashboard</Button>
+                     </Link>
+                <br />
+                <Link to={`/dashboard/review`}>
+                    <Button>Review</Button>
+                </Link>
+                <br />
+                <Link to={`/dashboard/myOrders`}>
+                    <Button>My Orders</Button>
+                </Link>
+                <br />
+                <Link to={`/dashboard/pay`}>
+                    <Button>Pay</Button>
+                </Link>
+                <br />
+                <Link to={`/dashboard/addProduct`}>
+                    <Button>Add Product</Button>
+                </Link>
+                <br />
+                <Link to={`/dashboard/makeAdmin`}>
+                    <Button>Make Admin</Button>
+                </Link>
+                <br />
+                <Link to={`/dashboard/manageProducts`}>
+                    <Button>Manage Products</Button>
+                </Link>
+                <br />
+                <Link to={`/dashboard/manageAllOrders`}>
+                    <Button>Manage All Orders</Button>
+                </Link>
+                <br />
+               
+
+
+
+
+
+
+                {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => ( */}
+                {/* <ListItem key={text} disablePadding>
                         <ListItemButton>
-                       
+
                             {/* <ListItemIcon>
                                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                             </ListItemIcon> */}
-                            <ListItemText primary={text} />
-                        </ListItemButton>
-                    </ListItem>
-                ))}
+                {/* <ListItemText primary={text} /> */}
+                {/* </ListItemButton> */}
+                {/* </ListItem> */}
+                {/* ))} */}
+
+
+
             </List>
 
-            {/* <Divider /> */}
 
-
-            {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
 
 
         </div>
@@ -152,35 +168,10 @@ export default function ResponsiveDrawer(props: Props) {
                 sx={{ flexGrow: 1, p: 1, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
             >
                 <Toolbar />
-                <Typography paragraph>
-                   
 
 
+                <Outlet />
 
-
-
-
-              
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </Typography>
 
             </Box>
         </Box>

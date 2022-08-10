@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { NavLink } from "react-router-dom";
@@ -11,17 +11,18 @@ import { Button } from 'react-bootstrap';
 const Header = () => {
 
     const { user, logOut } = useAuth();
+    //  const  [darkmode, setDarkmode] = useState(false);
     let activeStyle = {
         color: "springgreen",
         fontWeight: "bold"
     }
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
+            <Navbar collapseOnSelect expand="lg" bg= "dark" variant= "dark" >
                 <Container>
                     <Navbar.Brand className='header-name'>
 
-                        <Link to="/home" className='m-0'>
+                    <Link to="/home" className='m-0'>
                         <h2>Camera Essential</h2>
                         </Link>
                         
@@ -71,6 +72,7 @@ const Header = () => {
                                 }
                             > Dashboard
                             </NavLink></div>}
+                            {/* <Button onClick={()=> setDarkmode(true)}>Dark</Button> */}
 
                             <span className='text-white ms-3'> {user?.displayName}</span>
                             {user?.email && <span className='ms-3 text-white' style={{cursor : "pointer"}} onClick={logOut} variant='danger'>LogOut</span>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import "./Review.css"
 
 const Review = () => {
     const { register, handleSubmit, reset,  formState: { errors } } = useForm();
@@ -23,20 +24,20 @@ const Review = () => {
 
     return (
         <div className="text-center py-5">
-           <h2 className='mb-4'>Your Review</h2>
+           <h2 className='mb-5 review-title'>Please give a good review</h2>
            <form onSubmit={handleSubmit(onSubmit)} >
-      <input className='w-50' type='name' placeholder='Name' {...register("name")} />
+      <input className='w-50 p-2' type='name' placeholder='Name' {...register("name")} />
       <br />
       <br />
-      <input className='w-50' type="text" placeholder='Profession'   {...register("profession")} />
+      <input className='w-50 p-2' type="text" placeholder='Profession'   {...register("profession")} />
       <br /> <br />
-      <input className='w-50' placeholder='Rating' type='number'  {...register("rating",{min:0,max:5})} />
+      <input className='w-50 p-2' placeholder='Rating' type='number'  {...register("rating",{min:0, max:5})} />
       <br />
       <br />
-      <textarea placeholder='Description' className='w-50'  {...register("description")} />
+      <textarea placeholder='Description' className='w-50 review-textarea p-2'  {...register("description")} />
       <br />
       
-      <input className='btn btn-danger' type="submit" />
+      <input className='btn btn-primary mt-4' type="submit"  />
     </form> 
         </div>
     );

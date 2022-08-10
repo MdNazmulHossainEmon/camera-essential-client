@@ -8,6 +8,9 @@ import { Spinner } from 'react-bootstrap';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import "./Login.css"
+import Header from '../Shared/Header/Header';
+import Footer from '../Shared/Footer/Footer';
 
 const Login = () => {
   const { loginUser, isLoading, user } = useAuth();
@@ -43,15 +46,17 @@ const Login = () => {
   }
 
   return (
+   <div>
+    <Header></Header>
     <div className='py-5 text-center'>
-      <h2 className='mb-4'>Please Login</h2>
+      <h2 className='mb-5 login-title'>Please Login</h2>
 
       <Form onSubmit={handleLoginSbumit} className='w-50 text-center mx-auto'>
        
         
 
 
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail" >
+        <Form.Group as={Row} className="mb-4" controlId="formHorizontalEmail" >
           <Form.Label column sm={2}>
             Email
           </Form.Label>
@@ -72,7 +77,7 @@ const Login = () => {
 
         <Form.Group as={Row} className="mb-3">
           <Col sm={{ span: 8, offset: 2 }}>
-            <Button type="submit">Login</Button>
+            <Button className='mt-3' type="submit" variant='primary'>Login</Button>
           </Col>
         </Form.Group>
 
@@ -102,6 +107,8 @@ const Login = () => {
 
       <Button onClick={handleLogin} variant="primary">Google SignIn</Button>
     </div>
+    <Footer></Footer>
+   </div>
   );
 };
 

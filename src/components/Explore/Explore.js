@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Card, Col, Row, Spinner } from 'react-bootstrap';
 import { Container } from 'react-bootstrap';
+import Footer from '../Shared/Footer/Footer';
+import Header from '../Shared/Header/Header';
 import "./Explore.css";
+import { Link } from 'react-router-dom';
 
 const Explore = () => {
     const [exploreProducts, setExploreProducts] = useState([]);
@@ -12,8 +15,11 @@ const Explore = () => {
             .then(data => setExploreProducts(data))
     }, [])
     return (
+       <div>
+        <Header></Header>
         <div className='py-5 explore'>
-            <h2 className='text-center'>Explore the World of fashionable Cameras </h2>
+            <h2 className='text-center'>Explore The World Of Fashionable Cameras
+            </h2>
 
             <div className='explore-align text-center'>
                 <Container>
@@ -37,7 +43,12 @@ const Explore = () => {
                                             <Card.Text>
                                                 Price : ${exploreProduct.price}
                                             </Card.Text>
-                                            <Button variant='light' className='buyNowButton'>Buy Now</Button>
+                                          
+                                            <Link to={`/purchase/${exploreProduct?._id}`}>
+                                       <Button variant='primary'>Buy Now</Button>
+                                       </Link>
+                                       
+                                       
                                         </Card.Body>
                                     </Card>
                                 </Col>)
@@ -46,6 +57,8 @@ const Explore = () => {
                 </Container>
             </div>
         </div>
+        <Footer></Footer>
+       </div>
     );
 };
 

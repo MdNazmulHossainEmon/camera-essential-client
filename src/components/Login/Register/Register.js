@@ -7,9 +7,11 @@ import { Button } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import Alert from 'react-bootstrap/Alert';
 import { useLocation, useNavigate } from 'react-router-dom';
-
+import "./Register.css";
 // import { faRegistered } from '@fortawesome/free-solid-svg-icons';
 import { Spinner } from 'react-bootstrap';
+import Header from '../../Shared/Header/Header';
+import Footer from '../../Shared/Footer/Footer';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({});
@@ -34,15 +36,16 @@ const Register = () => {
         const newLoginData = { ...loginData };
         newLoginData[field] = value;
         setLoginData(newLoginData);
-        console.log(newLoginData)
     }
 
     return (
-        <div className='py-5 text-center'>
-            <h2 className='mb-4'>Please Register</h2>
+        <div>
+            <Header></Header>
+            <div className='py-5 text-center'>
+            <h2 className='mb-5 register-title'>Please Register</h2>
             {!isLoading && <Form onSubmit={handleRegistration} className='w-50 text-center mx-auto'>
            
-            <Form.Group as={Row} className="mb-3" controlId="formHorizontalName" >
+            <Form.Group as={Row} className="mb-4" controlId="formHorizontalName" >
           <Form.Label column sm={2}>
             Name
           </Form.Label>
@@ -52,7 +55,7 @@ const Register = () => {
         </Form.Group>
 
 
-                <Form.Group as={Row} className="mb-3" controlId="formHorizontalEmail" >
+                <Form.Group as={Row} className="mb-4" controlId="formHorizontalEmail" >
                     <Form.Label column sm={2}>
                         Email
                     </Form.Label>
@@ -61,7 +64,7 @@ const Register = () => {
                     </Col>
                 </Form.Group>
                 {/* password */}
-                <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+                <Form.Group as={Row} className="mb-4" controlId="formHorizontalPassword">
                     <Form.Label column sm={2}>
                         Password
                     </Form.Label>
@@ -75,14 +78,14 @@ const Register = () => {
                         Confirm Password
                     </Form.Label>
                     <Col sm={10}>
-                        <Form.Control name='password2' onBlur={handleOnBlur} type="password" placeholder="Password" />
+                        <Form.Control name='password2' onBlur={handleOnBlur} type="password" placeholder="Confirm Password" />
                     </Col>
                 </Form.Group>
 
 
                 <Form.Group as={Row} className="mb-3">
                     <Col sm={{ span: 8, offset: 2 }}>
-                        <Button type="submit">Register</Button>
+                        <Button type="submit" variant='primary'>Register</Button>
                     </Col>
                 </Form.Group>
 
@@ -112,6 +115,8 @@ const Register = () => {
             
 
 
+        </div>
+            <Footer></Footer>
         </div>
     );
 };

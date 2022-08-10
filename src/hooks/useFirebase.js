@@ -19,8 +19,9 @@ const UseFirebase = () => {
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const destination = location.state?.from || '/purchase';
-                history(destination);
+            history(destination);
         //   setUser(user);
+        
         })
         .catch((error) => {
           setauthError(error.message)
@@ -33,8 +34,6 @@ const UseFirebase = () => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                
-              
                 
                 const newUser = {email, displayName : name};
                 setUser(newUser)
@@ -67,7 +66,7 @@ const UseFirebase = () => {
                 history(destination);
                 // The signed-in user info.
                 setUser(result.user);
-                // sessionStorage.setItem("email", result.user.email);
+                sessionStorage.setItem("email", result.user.email);
             })
             .catch((authError) => {
                 setauthError(authError.message)

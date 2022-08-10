@@ -1,3 +1,6 @@
 .purchase-title{
     font-weight: bold;
 }
+.purchase-textarea-field{
+    height: 8rem;
+}

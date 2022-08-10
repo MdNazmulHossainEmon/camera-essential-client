@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
+import "./AddProduct.css";
 const AddProduct = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -22,24 +24,28 @@ const AddProduct = () => {
     }
 
     return (
+       <div>
+        {/* <Header></Header> */}
         <div className='text-center py-5'>
-            <h2 className='mb-5'> Please Add a Product</h2>
+            <h2 className='mb-5 add-title'> Please Add a Product</h2>
 
             <form className='vh-100' onSubmit={handleSubmit(onSubmit)}>
-                <input className='w-50' placeholder='Image Url' {...register("img")} />
+                <input className='w-50 p-2' placeholder='Image Url' {...register("img")} />
                 <br />
                 <br />
-                <input className='w-50' type='name' placeholder='Name' {...register("name")} />
+                <input className='w-50 p-2' type='name' placeholder='Name' {...register("name")} />
                 <br />
                 <br />
-                <input className='w-50' placeholder='Price' type='number'  {...register("price")} />
+                <input className='w-50 p-2' placeholder='Price' type='number'  {...register("price")} />
                 <br />
                 <br />
-                <textarea placeholder='Description' className='w-50'  {...register("description")} />
+                <textarea placeholder='Description' className='w-50 h-25 p-2'  {...register("description")} />
                 <br />
-                <input className='btn btn-success' type="submit" />
+                <input className='btn btn-primary mt-4 ' type="submit" value="Add Product" />
             </form>
         </div>
+        {/* <Footer></Footer> */}
+       </div>
     );
 };
 
