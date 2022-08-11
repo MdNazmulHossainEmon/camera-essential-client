@@ -7,11 +7,11 @@ import Col from 'react-bootstrap/Col';
 import Spinner from 'react-bootstrap/Spinner';
 const ManageAllOrders = () => {
     const [allOrderProducts, setAllOrderProducts] = useState([]);
-    useEffect(()=>{
-        fetch("http://localhost:5000/purchase")
-        .then(res=> res.json())
-        .then(data=> setAllOrderProducts(data))
-    },[])
+    useEffect(() => {
+        fetch("https://murmuring-earth-49414.herokuapp.com/purchase")
+            .then(res => res.json())
+            .then(data => setAllOrderProducts(data))
+    }, [])
     return (
         <div className='text-center py-5'>
             <h2 className='mb-4'>All Order Products {allOrderProducts.length} </h2>
@@ -28,7 +28,7 @@ const ManageAllOrders = () => {
                                     <Col className='allProducts'>
                                         <Card className='mb-3text-center card'>
                                             <div className='text-center'>
-                                            <Card.Img variant="top" className='w-50' src={allOrderProduct?.img} />
+                                                <Card.Img variant="top" className='w-50' src={allOrderProduct?.img} />
                                             </div>
                                             <Card.Body>
                                                 <Card.Title>{allOrderProduct?.name}</Card.Title>
@@ -36,7 +36,7 @@ const ManageAllOrders = () => {
                                                     {allOrderProduct?.description}
                                                 </Card.Text>
                                                 <Card.Text>
-                                                 Price :  ${allOrderProduct?.price}
+                                                    Price :  ${allOrderProduct?.price}
                                                 </Card.Text>
 
                                             </Card.Body>

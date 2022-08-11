@@ -8,46 +8,46 @@ import Button from 'react-bootstrap/Button';
 import "./Banner.css";
 
 const Banner = () => {
-    return (
-        <div>
-            <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={banner3} 
-          alt="First slide"
-        />
-        <Carousel.Caption className='carousel-caption'>
-          <h2>Capture Your <br />
-Beautiful Moments</h2>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={banner2}
-          alt="Second slide"
-        />
+  return (
+    <div>
+      <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={banner3}
+            alt="First slide"
+          />
+          <Carousel.Caption className='carousel-caption'>
+            <h2>Capture Your <br />
+              Beautiful Moments</h2>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={banner2}
+            alt="Second slide"
+          />
 
-        <Carousel.Caption className='carousel-caption'>
-        <h2>Look for the <br /> magic in every moment.</h2>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src={banner1}
-          alt="Third slide"
-        />
+          <Carousel.Caption className='carousel-caption'>
+            <h2>Look for the <br /> magic in every moment.</h2>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src={banner1}
+            alt="Third slide"
+          />
 
-        <Carousel.Caption className='carousel-caption'>
-       <h2> perfect focus <br /> on my own picture    </h2>     
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-    
-        </div>
-    );
+          <Carousel.Caption className='carousel-caption'>
+            <h2> perfect focus <br /> on my own picture    </h2>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
+
+    </div>
+  );
 };
 
 export default Banner;

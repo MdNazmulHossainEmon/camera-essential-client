@@ -1,14 +1,13 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import Footer from '../../Shared/Footer/Footer';
-import Header from '../../Shared/Header/Header';
+
 import "./AddProduct.css";
 const AddProduct = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     // Send data to the server
     const onSubmit = data => {
-        fetch(`http://localhost:5000/products`, {
+        fetch(`https://murmuring-earth-49414.herokuapp.com/products`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)
@@ -25,7 +24,6 @@ const AddProduct = () => {
 
     return (
        <div>
-        {/* <Header></Header> */}
         <div className='text-center py-5'>
             <h2 className='mb-5 add-title'> Please Add a Product</h2>
 
@@ -44,7 +42,6 @@ const AddProduct = () => {
                 <input className='btn btn-primary mt-4 ' type="submit" value="Add Product" />
             </form>
         </div>
-        {/* <Footer></Footer> */}
        </div>
     );
 };

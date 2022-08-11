@@ -14,7 +14,6 @@ import Footer from '../Shared/Footer/Footer';
 
 const Login = () => {
   const { loginUser, isLoading, user } = useAuth();
-
   const [loginData, setLoginData] = useState({});
   const { signInUsingGoogle } = useAuth();
   const location = useLocation();
@@ -23,7 +22,6 @@ const Login = () => {
   const handleLogin = () => {
     signInUsingGoogle(location, history);
   }
-
 
   // handle OnChange 
   const handleOnChange = (e) => {
@@ -39,76 +37,64 @@ const Login = () => {
   const handleLoginSbumit = (e) => {
     e.preventDefault();
     // console.log("form is clicked")
-
-    loginUser(loginData.email, loginData.password,  location, history )
-
+    loginUser(loginData.email, loginData.password, location, history)
 
   }
 
   return (
-   <div>
-    <Header></Header>
-    <div className='py-5 text-center'>
-      <h2 className='mb-5 login-title'>Please Login</h2>
+    <div>
+      <Header></Header>
+      <div className='py-5 text-center'>
+        <h2 className='mb-5 login-title'>Please Login</h2>
 
-      <Form onSubmit={handleLoginSbumit} className='w-50 text-center mx-auto'>
-       
-        
+        <Form onSubmit={handleLoginSbumit} className='w-50 text-center mx-auto'>
 
 
-        <Form.Group as={Row} className="mb-4" controlId="formHorizontalEmail" >
-          <Form.Label column sm={2}>
-            Email
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control name='email' onChange={handleOnChange} type="email" placeholder="Email" />
-          </Col>
-        </Form.Group>
+          <Form.Group as={Row} className="mb-4" controlId="formHorizontalEmail" >
+            <Form.Label column sm={2}>
+              Email
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control name='email' onChange={handleOnChange} type="email" placeholder="Email" />
+            </Col>
+          </Form.Group>
 
-        <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
-          <Form.Label column sm={2}>
-            Password
-          </Form.Label>
-          <Col sm={10}>
-            <Form.Control name='password' onChange={handleOnChange} type="password" placeholder="Password" />
-          </Col>
-        </Form.Group>
+          <Form.Group as={Row} className="mb-3" controlId="formHorizontalPassword">
+            <Form.Label column sm={2}>
+              Password
+            </Form.Label>
+            <Col sm={10}>
+              <Form.Control name='password' onChange={handleOnChange} type="password" placeholder="Password" />
+            </Col>
+          </Form.Group>
 
+          <Form.Group as={Row} className="mb-3">
+            <Col sm={{ span: 8, offset: 2 }}>
+              <Button className='mt-3' type="submit" variant='primary'>Login</Button>
+            </Col>
+          </Form.Group>
 
-        <Form.Group as={Row} className="mb-3">
-          <Col sm={{ span: 8, offset: 2 }}>
-            <Button className='mt-3' type="submit" variant='primary'>Login</Button>
-          </Col>
-        </Form.Group>
+          <NavLink
+            style={{ textDecoration: "none" }}
+            to='/register'>
+            <p>New User? Please Register</p>
+          </NavLink>
 
-        <NavLink
-          style={{ textDecoration: "none" }}
-          to='/register'>
-          <p>New User? Please Register</p>
+          {isLoading && <div className='text-center mb-5'>
+            <Spinner animation="border" />
+          </div>}
 
-        </NavLink>
+          {user?.email && <Alert className='w-50 mx-auto' variant="success">
 
-        {isLoading && <div className='text-center mb-5'>
-          <Spinner animation="border" />
-        </div>}
+            User Login susccessfully
+          </Alert>}
 
-        {user?.email && <Alert className='w-50 mx-auto' variant="success">
+        </Form>
 
-          User Login susccessfully
-        </Alert>}
-
-
-
-
-      </Form>
-     
-
-
-
-      <Button onClick={handleLogin} variant="primary">Google SignIn</Button>
+        <Button onClick={handleLogin} variant="primary">Google SignIn</Button>
+      </div>
+      <Footer></Footer>
     </div>
-    <Footer></Footer>
-   </div>
   );
 };
 

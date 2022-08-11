@@ -20,7 +20,7 @@ const Purchase = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const url = `http://localhost:5000/products/${id}`
+        const url = `https://murmuring-earth-49414.herokuapp.com/products/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))
@@ -29,7 +29,7 @@ const Purchase = () => {
     const onSubmit = data => {
         data.email = email;
 
-        fetch(`http://localhost:5000/purchase`, {
+        fetch(`https://murmuring-earth-49414.herokuapp.com/purchase`, {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data)
@@ -44,12 +44,10 @@ const Purchase = () => {
     };
 
 
-
     return (
         <div>
             <Header></Header>
             <div className='py-4'>
-
                 <Container>
                     <h2 className='mb-5 text-center purchase-title '>Place You Purchase </h2>
                     <Row className='d-flex align-items-center justify-content-center'>
@@ -59,11 +57,9 @@ const Purchase = () => {
                                 <br />
                                 <br />
 
-
                                 <input defaultValue={product.img} {...register("img", { required: true })} className="w-75 p-2" placeholder="Image Url" />
                                 <br />
                                 <br />
-
 
                                 <input defaultValue={user?.displayName} {...register("names", { required: true })} className="w-75 p-2" placeholder="User Name" />
                                 <br />
@@ -81,9 +77,7 @@ const Purchase = () => {
                                 <br />
                                 <br />
 
-
                                 <textarea defaultValue={product?.description} {...register("description", { required: true })} placeholder="Description" className="w-75 purchase-textarea-field p-2" />
-
                                 <br />
                                 <br />
 
@@ -92,7 +86,6 @@ const Purchase = () => {
                         </Col>
 
                         <Col lg={5}>
-
                             <Card className='border-0 text-center mt-3'>
                                 <div>
                                     <Card.Img className='w-50' variant="top" src={product.img} />
@@ -113,7 +106,6 @@ const Purchase = () => {
             </div>
             <Footer></Footer>
         </div>
-
     );
 };
 

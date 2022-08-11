@@ -2,7 +2,7 @@ import React from 'react';
 
 const NotFound = () => {
     return (
-        <div>
+        <div className='text-center py-5'>
             <h1>Page is Not Found</h1>
         </div>
     );

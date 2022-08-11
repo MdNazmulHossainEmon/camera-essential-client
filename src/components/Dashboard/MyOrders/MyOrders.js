@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Footer from '../../Shared/Footer/Footer';
-import Header from '../../Shared/Header/Header';
 import Row from 'react-bootstrap/Row';
 import { Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
@@ -12,7 +10,7 @@ const MyOrders = () => {
     const email = sessionStorage.getItem("email");
     useEffect(() => {
 
-        fetch(`http://localhost:5000/purchase/${email}`)
+        fetch(`https://murmuring-earth-49414.herokuapp.com/purchase/${email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [])
@@ -21,7 +19,7 @@ const MyOrders = () => {
     const handleDeleteUser = id => {
         const proceed = window.confirm("Are you sure, you want to delete?");
         if (proceed) {
-            const url = `http://localhost:5000/purchase/${id}`
+            const url = `https://murmuring-earth-49414.herokuapp.com/purchase/${id}`
             fetch(url, {
                 method: "DELETE"
             })
@@ -40,7 +38,6 @@ const MyOrders = () => {
     return (
 
         <div>
-            {/* <Header></Header> */}
             <div className='py-5'>
                 <h2 className='text-center mb-5'>My Orders : {orders.length} </h2>
 
@@ -70,7 +67,6 @@ const MyOrders = () => {
                 </Container>
 
             </div>
-            {/* <Footer></Footer> */}
         </div>
     );
 };

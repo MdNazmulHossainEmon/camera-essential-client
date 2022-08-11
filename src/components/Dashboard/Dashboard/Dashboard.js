@@ -6,24 +6,21 @@ import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Link, Outlet } from "react-router-dom";
+import "./Dashboard.css"
+import useAuth from '../../../hooks/useAuth';
 import { Button } from '@mui/material';
-
 
 
 const drawerWidth = 240;
 
-
-
 export default function ResponsiveDrawer(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const {logOut} = useAuth();
     // let { path, url } = useMatch ();
 
     const handleDrawerToggle = () => {
@@ -31,75 +28,52 @@ export default function ResponsiveDrawer(props) {
     };
 
     const drawer = (
-
         <div>
-
-
             <Toolbar />
             <Divider />
-
-
-
 
             <List >
 
                 <Link to="/dashboard">
-                     <Button>dashboard</Button>
-                     </Link>
-                <br />
+                    <p className='text-dark-dashboard text-dark text-center m-0'>Dashboard Home</p>
+                </Link>
+
+                <Link to="/home">
+                    <p className='text-dark-dashboard text-dark text-center m-0'>Home</p>
+                </Link>
+
                 <Link to={`/dashboard/review`}>
-                    <Button>Review</Button>
+                    <p className='text-dark-dashboard text-dark text-center m-0'>Review</p>
                 </Link>
-                <br />
+
                 <Link to={`/dashboard/myOrders`}>
-                    <Button>My Orders</Button>
+                    <p className='text-dark-dashboard text-dark text-center m-0'>My Orders</p>
                 </Link>
-                <br />
+
                 <Link to={`/dashboard/pay`}>
-                    <Button>Pay</Button>
+                    <p className='text-dark-dashboard text-dark text-center m-0'>Pay</p>
                 </Link>
-                <br />
+
                 <Link to={`/dashboard/addProduct`}>
-                    <Button>Add Product</Button>
+                    <p className='text-dark-dashboard text-dark text-center m-0'>Add Product</p>
                 </Link>
-                <br />
+
                 <Link to={`/dashboard/makeAdmin`}>
-                    <Button>Make Admin</Button>
+                    <p className='text-dark-dashboard text-dark text-center m-0'>Make Admin</p>
                 </Link>
-                <br />
+
                 <Link to={`/dashboard/manageProducts`}>
-                    <Button>Manage Products</Button>
+                    <p className='text-dark-dashboard text-dark text-center m-0'>Manage Products</p>
                 </Link>
-                <br />
+
                 <Link to={`/dashboard/manageAllOrders`}>
-                    <Button>Manage All Orders</Button>
+                    <p className='text-dark-dashboard text-dark text-center m-0'>Manage All Orders</p>
                 </Link>
-                <br />
-               
-
-
-
-
-
-
-                {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => ( */}
-                {/* <ListItem key={text} disablePadding>
-                        <ListItemButton>
-
-                            {/* <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                            </ListItemIcon> */}
-                {/* <ListItemText primary={text} /> */}
-                {/* </ListItemButton> */}
-                {/* </ListItem> */}
-                {/* ))} */}
-
-
-
+                <div className='text-center mt-2'>
+                <Button onClick={logOut}>Logout</Button>
+                </div>
+             
             </List>
-
-
-
 
         </div>
     );
@@ -169,9 +143,7 @@ export default function ResponsiveDrawer(props) {
             >
                 <Toolbar />
 
-
                 <Outlet />
-
 
             </Box>
         </Box>

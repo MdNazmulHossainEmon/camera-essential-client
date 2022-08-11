@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword,signInWithEmailAndPassword ,updateProfile  } from "firebase/auth";
 import initializeAuthentication from "../Firebase/firebase.init";
+// import { LineAxisOutlined } from "@mui/icons-material";
 
 initializeAuthentication();
 
@@ -37,6 +38,8 @@ const UseFirebase = () => {
                 
                 const newUser = {email, displayName : name};
                 setUser(newUser)
+
+
                 // send name to firebase after creation
                 updateProfile(auth.currentUser, {
                     displayName: name
@@ -102,6 +105,8 @@ const UseFirebase = () => {
         return ()=> unsubscribe;
 
     }, [])
+
+
 
     return {
         signInUsingGoogle,
